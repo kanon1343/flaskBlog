@@ -1,4 +1,5 @@
 import os
+
 from flask import Flask
 
 
@@ -14,8 +15,7 @@ def create_app(test_config=None):
         # テストしていないときに、インスタンス設定があればロードする
         app.config.from_pyfile('config.py', silent=True)
     else:
-        # 
-        app.config_from_mapping(test_config)
+        app.config.from_mapping(test_config)
 
     # インスタンスフォルダが存在することを確認する
     try:
